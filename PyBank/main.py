@@ -1,7 +1,7 @@
 import os
 import csv
 
-datapath = os.path.join('g','DataBootCamp','PythonWork','python-challenge','PyBank','resources', 'BudgetData.csv')
+datapath = os.path.join('resources', 'BudgetData.csv')
 
 with open(datapath) as csvfile:
 
