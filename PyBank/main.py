@@ -57,7 +57,7 @@ with open(datapath) as csvfile:
 
       
 
-    Output file with final values
+# Output file with final values
 output_file = os.path.join("analysis", "FinancialAnalysis.txt")
 
 with open(output_file,"w") as file:     
@@ -65,7 +65,7 @@ with open(output_file,"w") as file:
     file.write("Financial Analysis \n")
     file.write("----------------------------\n")
     file.write(f"Total Amount of Months: {Count}\n")
-    file.write(f"Total: ${sum(proflossTotal)}\n")
-    file.write(f"Average Change: $ {averageChange}\n")
+    file.write(f"Total: ${(netProfit):.2f}\n")
+    file.write(f"Average Change: $ {(netChange):.2f}\n")
     file.write(f"Greatest Increase in Profits: {maxMonth}, $ {maxValue}\n")
     file.write(f"Greatest Decrease in Profits: {minMonth}, $ {minValue}")
