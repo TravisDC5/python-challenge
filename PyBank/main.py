@@ -7,7 +7,7 @@ import csv
 
 
 # Read-In csv file containing raw data
-datapath = os.path.join('resources', 'BudgetData.csv')
+datapath = os.path.join('resources', '03-Python_HW_Instructions_PyBank_Resources_budget_data.csv')
 
 with open(datapath) as csvfile:
 
