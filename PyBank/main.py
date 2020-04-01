@@ -2,20 +2,18 @@
 import os
 import csv
 
-
-#Declare and Initialize variables
-
-
-# Read-In csv file containing raw data
+# Read-In csv file containing raw data 
 datapath = os.path.join('resources', '03-Python_HW_Instructions_PyBank_Resources_budget_data.csv')
 
 with open(datapath) as csvfile:
 
     dataparser = csv.reader(csvfile, delimiter=',')
     
+    # 1st next() skips over header of read-in file, 2nd next() stores first row of data for processing later
     csv_header = next(dataparser)
     pValue = next(dataparser)
     
+    #Declare and Initialize essential variables
     Count = 1
     netProfit = int(pValue[1])
     averageChange = []
@@ -25,7 +23,7 @@ with open(datapath) as csvfile:
     maxMonth = ''
     
     
-    #Extract useful data to be used later for running calculations/mainuplations
+    #iterates through raw data, and pulls values for calculating the objective outputs
     for row in dataparser:
         
         Count += 1
@@ -43,7 +41,8 @@ with open(datapath) as csvfile:
 
         
         pValue[1] = int(row[1])
-       
+
+    # Calculate the sum of all average differences   
     netChange = sum(averageChange)/len(averageChange)
     
     #Print to terminal final values
