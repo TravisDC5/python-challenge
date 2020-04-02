@@ -11,7 +11,7 @@ totalVotes = 0
 winner = ''
 temp = 0
 
-#Read-in CSV file and sum up votes per candidate
+#Read-in CSV file and iterate through, and populate lists
 with open(datapath) as csvfile:
     
     dataparser = csv.reader(csvfile, delimiter=',')
@@ -32,7 +32,7 @@ with open(datapath) as csvfile:
             candidates.append(candidate)
             voteCount.append(1)
 
-
+#Loop through lists to find winner
 for i in range(len(candidates)):
 
     if voteCount[i] > temp:
@@ -46,6 +46,7 @@ print(f"----------------------------")
 print(f"Total Votes: {totalVotes}")
 print(f"----------------------------")
 
+# Create a dynamic print to terminal with candidates, calculated percentage, and total votes.
 for j in range(len(candidates)):
 
     print(f"{candidates[j]}: {((voteCount[j]/totalVotes)*100):.2f}% ({voteCount[j]})")
@@ -58,19 +59,21 @@ print(f"----------------------------")
 
 
 
-'''# Output files
+# Output file to text document
 output_file = os.path.join("analysis", "ElectionResults.txt")
 
 with open(output_file,"w") as file:
     
     file.write(f"Election Results\n")
     file.write(f"----------------------------\n")
-    file.write(f"Total Votes: {votesTotal}\n")
+    file.write(f"Total Votes: {totalVotes}\n")
     file.write(f"----------------------------\n")
-    file.write(f"Khan:     {percentageKhan:.2f}% ({votesKhan})\n")
-    file.write(f"Correy:   {percentageCorrey:.2f}% ({votesCorrey})\n")
-    file.write(f"Li:       {percentageLi:.2f}% ({votesLi})\n")
-    file.write(f"O'Tooley: {percetnageOtooley:.2f}% ({votesOtooley})\n")
+    
+    # Create a dynamic print to text file with candidates, calculated percentage, and total votes.
+    for z in range(len(candidates)):
+            file.write(f"{candidates[z]}: {((voteCount[z]/totalVotes)*100):.2f}% ({voteCount[z]})\n")
+    next
+    
     file.write(f"----------------------------\n")
     file.write(f"Winner: {winner}\n")
-    file.write(f"----------------------------")'''
+    file.write(f"----------------------------")
