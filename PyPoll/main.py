@@ -4,7 +4,7 @@ import csv
 
 
 # Declare/Initialize Variable
-datapath = os.path.join('resources', 'ElectionData.csv')
+datapath = os.path.join('resources', '03-Python_HW_Instructions_PyPoll_Resources_election_data.csv')
 candidates = []
 voteCount = []
 totalVotes = 0
